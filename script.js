@@ -27,8 +27,10 @@ const init = function () {
   score1El.textContent = 0;
 
   diceEl.classList.add('hidden');
-  document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner');
-  document.querySelector('.player--0').classList.add('player--active');
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+  player0El.classList.add('player--active');
+  player1El.classList.remove('play--active');
 };
 
 init();
@@ -72,7 +74,7 @@ btnHold.addEventListener('click', function () {
     document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
 
     // 2. Check if player's score is >= 100
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= 10) {
       // Finish the game
       diceEl.classList.add('hidden');
       playing = false;
